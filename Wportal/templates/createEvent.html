@@ -1,0 +1,38 @@
+{%extends "layout.html"%}
+
+{% block body %}
+<h1>Upload Event</h1>
+<form action="{% url 'uploadEvent' %}" method="post">
+    {% csrf_token %}
+    <div class="col-md-6">
+        <label>Name of the event</label>
+        <input class="form-control" name="title" type="text">
+    </div>
+    <div class="col-md-6">
+        <label>Eligibility</label>
+        <input class="form-control" name="eligibility" type="text">
+    </div>
+    <div class="col-md-6">
+        <label>Date of event</label>
+        <input class="form-control" name="edob" type="date">
+    </div>
+    <div class="col-md-6">
+        <label>Registration starting date</label>
+        <input class="form-control" name="rsdob" type="date">
+    </div>
+    <div class="col-md-6">
+        <label>Registration ending date</label>
+        <input class="form-control" name="rddob" type="date">
+    </div>
+    <div class="col-md-6">
+        <label>Registration Link</label>
+        <input class="form-control" name="link" type="url">
+    </div>
+    <div class="col-md-6">
+        <label>Event Description</label>
+        <textarea class="form-control" name="ed" type="textarea"></textarea>
+    </div>
+    <br>
+    <button id="centerMove" type="submit" class="btn">Upload</button>
+</form>
+{% endblock %}

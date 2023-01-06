@@ -1,0 +1,28 @@
+{%extends "layout.html"%}
+
+{% block body %}
+{% if allnote|length == 0 %}
+<h1>No Notes Posted</h1>
+{% else %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Subject</th>
+            <th scope="col">Unit</th>
+            <th scope="col">Type</th>
+            <th scope="col">Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in allnote %}
+        <tr>
+            <td>{{a.subject}}</td>
+            <td>{{a.unit}}</td>
+            <td>{{a.title}}</td>
+            <td><a href="{{a.pdf.url}}" class="btn">Download</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

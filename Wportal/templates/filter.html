@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>Notes</h1>
+<form action="{% url 'filter' %}" method="post">
+    {% csrf_token %}
+    <div class="col-md-6">
+        <label for="subject">choose Subject:</label>
+        <select class="form-control" name="subject" type="text">
+            <option value="Null">Select</option>
+            <option value="Tamil">Tamil</option>
+            <option value="English">English</option>
+            <option value="Maths">Maths</option>
+            <option value="Science">Science</option>
+            <option value="Social Science">Social Science</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="title">Choose Title:</label>
+        <select class="form-control" name="title" type="text">
+            <option value="Null">Select</option>
+            <option value="Questionpaper">Questionpaper</option>
+            <option value="Notes">Notes</option>
+            <option value="Studymaterial">StudyMaterial</option>
+            <option value="Textbook">TextBook</option>
+        </select>
+    </div>
+    {% if user.user_type == "Teacher" %}
+    <div class="col-md-6">
+        <label for="standard">Choose Standard:</label>
+        <select class="form-control" name="standard" type="text">
+            <option value="Null">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+    {% endif %}
+    <br><br>
+    <button id="centerMove" class="btn" type="submit">Search</button>
+</form>
+{% endblock %}

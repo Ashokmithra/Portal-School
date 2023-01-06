@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="login-container">
+    <h2>Login</h2><br>
+
+    {% if message %}
+    <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <i style="position:absolute; padding-top: 10px;padding-left: 5px;" class="fas fa-user" title="username"></i>
+            <input style="padding-left:20px;" type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+        <div class=" col-md-6" style="margin-top:2%;">
+            <i style="position:absolute; padding-top: 10px;padding-left: 5px;" class="fas fa-lock" title="password"></i>
+            <input style="padding-left:20px;" type="password" class="form-control" name="password"
+                placeholder="Password">
+        </div>
+        <br>
+        <input id="centerMove" class="btn login-submit" type="submit" value="Login">
+    </form>
+    <br>
+    <div style="margin-left: 37%;">
+        Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+    </div>
+</div>
+{% endblock %}

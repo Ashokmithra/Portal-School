@@ -1,0 +1,12 @@
+{% extends "layout.html"%}
+
+{% block body %}
+<h1>Upload Notes</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <br>
+    <button id="centerMove" class="btn ">Upload</button>
+    <hr>
+</form>
+{% endblock %}

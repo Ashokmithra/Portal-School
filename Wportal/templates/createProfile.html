@@ -1,0 +1,63 @@
+{% extends "layout.html"%}
+{% block body%}
+<div class="container">
+    <!-- <form class="form-group" method="post" action="{% url " profile" user.id%}">
+        {% csrf_token %} -->
+    <h1>Profile</h1>
+    <img src="https://britz.mcmaster.ca/images/nouserimage.gif/image" style="margin-left :40%; width:200px;" />
+    <br>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="uid">Userid:</label>
+            <input class="form-control" name="userid" type="text" value="{{user.id}}" disabled />
+        </div>
+        <div class="col-md-6">
+            <label for="uname">Username:</label>
+            <input class="form-control" name="username" type="text" value="{{user.username}}" disabled />
+        </div>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="uname">Mail:</label>
+            <input class="form-control" name="mail" type="mail" value="{{user.email}}" disabled />
+        </div>
+        {% if user.user_type == "Teacher" %}
+        <div class="col-md-6">
+            <label for="qualify">Qualificaiton:</label>
+            <input class="form-control" name="qualification" type="text" value="{{profile.qualify}}" disabled />
+        </div>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="subject">Subject:</label>
+            <input class="form-control" name="subject" type="text" value="{{profile.subject}}" disabled />
+        </div>
+        <div class="col-md-6">
+            <label for="expericence">Expericence:</label>
+            <input class="form-control" name="expericence" type="text" value="{{profile.experince}}" disabled />
+        </div>
+    </div>
+    {%else%}
+    <div class="col-md-6">
+        <label for="standard">Standard:</label>
+        <input class="form-control autoselect" name="standard" type="text" value="{{profile.standard}}" disabled />
+
+    </div>
+</div>
+<div class="row g-3">
+    <div class="col-md-6">
+        <label for="subject">Date Of Birth:</label>
+        <input class="form-control" name="dob" type="text" value="{{profile.dob}}" disabled />
+    </div>
+    <div class="col-md-6">
+        <label for="age">Age:</label>
+        <input class="form-control" name="age" type="text" value="{{profile.age}}" disabled />
+    </div>
+</div>
+{%endif%}
+<!-- <button style="margin-left:46%;" class="btn btn-primary" type="submit">Submit</button>
+</form> -->
+
+</div>
+
+{% endblock %}

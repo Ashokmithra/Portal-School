@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h2>Register</h2><br>
+    {% if message %}
+    <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <i class="fas fa-user" title="username"></i>
+            <input autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <i class="fas fa-envelope" title="email"></i>
+            <input type="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+            <i class="fas fa-lock" title="password"></i>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <i class="fas fa-lock" title="Confirm password"></i>
+            <input type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <div class="form-group">
+            <i class="fas fa-ballot" title="choose your role"></i>
+            <label>Choose your role:</label>
+            <select name="user_type" id="user_type">
+                <option value="Null">Select</option>
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+            </select>
+        </div>
+        <input class="btn register-submit" type="submit" value="Register">
+    </form>
+    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+</div>
+
+
+{% endblock %}
